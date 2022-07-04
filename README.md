@@ -1,8 +1,8 @@
 # A Vietnamese-English Neural Machine Translation System
 
-Pre-trained VinAI Translate models `vinai/vinai-translate-vi2en` and `vinai/vinai-translate-en2vi` are state-of-the-art text translation models for Vietnamese-to-English and English-to-Vietnamese, respectively. Our demonstration system VinAI Translate employing these pre-trained models is available at: [https://vinai-translate.vinai.io](https://vinai-translate.vinai.io). 
+Our pre-trained VinAI Translate models `vinai/vinai-translate-vi2en` and `vinai/vinai-translate-en2vi` are state-of-the-art text translation models for Vietnamese-to-English and English-to-Vietnamese, respectively.  The machine translation system VinAI Translate employing these pre-trained models is available at: [https://vinai-translate.vinai.io](https://vinai-translate.vinai.io). 
 
-The general architecture and experimental results of VinAI Translate can be found in our paper:
+The general architecture and experimental results of VinAI Translate can be found in [our paper](https://openreview.net/forum?id=CRg-RaxKnai):
 
 
     @inproceedings{vinaitranslate,
@@ -12,7 +12,7 @@ The general architecture and experimental results of VinAI Translate can be foun
     year      = {2022}
     }
     
-Please **CITE** our paper whenever our pre-trained models are used to help produce published results or incorporated into other software.
+Please **CITE** our paper whenever the pre-trained models or the system are used to help produce published results or incorporated into other software.
 
 
 ## Using VinAI Translate in [`transformers`](https://github.com/huggingface/transformers)
