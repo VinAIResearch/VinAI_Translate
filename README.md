@@ -89,9 +89,9 @@ def translate_en2vi(en_text: str) -> str:
     vi_text = " ".join(vi_text)
     return vi_text
 
-en_text = "I haven't been to a public gym before, but with a private yoga teacher or at home. When I exercise in a private space, I feel more comfortable."
+en_text = "I haven't been to a public gym before. When I exercise in a private space, I feel more comfortable."
 print(translate_en2vi(en_text))
 
-en_text = "i haven't been to a public gym before but with a private yoga teacher or at home when i exercise in a private space i feel more comfortable"
+en_text = "i haven't been to a public gym before when i exercise in a private space i feel more comfortable"
 print(translate_en2vi(en_text))
 ```
