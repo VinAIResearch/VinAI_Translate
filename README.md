@@ -65,7 +65,7 @@ vi_text = "cô cho biết trước giờ tôi không đến phòng tập công c
 print(translate_vi2en(vi_text))
 ```
 
-- **NOTE**: Before training, we performed Vietnamese tone normalization on the Vietnamese training data, using [a Python script](https://github.com/VinAIResearch/BARTpho/blob/main/VietnameseToneNormalization.md). Users should also employ [this tone normalization script](https://github.com/VinAIResearch/BARTpho/blob/main/VietnameseToneNormalization.md) to pre-process the Vietnamese input data before feeding the data into our pre-trained model `vinai/vinai-translate-vi2en`. See a simple and complete example code at [HERE](https://huggingface.co/spaces/vinai/VinAI_Translate/blob/main/app.py).
+- **NOTE**: Before training, we performed Vietnamese tone normalization on the Vietnamese training data, using [a Python script](https://github.com/VinAIResearch/BARTpho/blob/main/VietnameseToneNormalization.md). Users should also employ this script to pre-process the Vietnamese input data before feeding the data into our pre-trained model `vinai/vinai-translate-vi2en`. See a simple and complete example code at [HERE](https://huggingface.co/spaces/vinai/VinAI_Translate/blob/main/app.py).
 
 ### English-to-Vietnamese translation
 
