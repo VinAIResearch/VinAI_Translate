@@ -50,11 +50,6 @@ def translate_vi2en(vi_text: str) -> str:
         input_ids,
         decoder_start_token_id=tokenizer_vi2en.lang_code_to_id["en_XX"],
         num_return_sequences=1,
-        # # With sampling
-        # do_sample=True,
-        # top_k=100,
-        # top_p=0.8,
-        # With beam search
         num_beams=5,
         early_stopping=True
     )
@@ -85,11 +80,6 @@ def translate_en2vi(en_text: str) -> str:
         input_ids,
         decoder_start_token_id=tokenizer_en2vi.lang_code_to_id["vi_VN"],
         num_return_sequences=1,
-        # # With sampling
-        # do_sample=True,
-        # top_k=100,
-        # top_p=0.8,
-        # With beam search
         num_beams=5,
         early_stopping=True
     )
