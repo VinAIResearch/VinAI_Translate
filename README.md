@@ -1,6 +1,6 @@
 # A Vietnamese-English Neural Machine Translation System
 
-Our pre-trained VinAI Translate models `vinai/vinai-translate-vi2en` and `vinai/vinai-translate-en2vi` are state-of-the-art text-to-text translation models for Vietnamese-to-English and English-to-Vietnamese, respectively. These pre-trained models are currently used in the translation component of our [VinAI Translate system](https://vinai-translate.vinai.io). The general architecture and experimental results of the pre-trained models can be found in our [VinAI Translate system paper](https://openreview.net/forum?id=CRg-RaxKnai):
+Our pre-trained VinAI Translate models `vinai/vinai-translate-vi2en` and `vinai/vinai-translate-en2vi` are state-of-the-art text-to-text translation models for Vietnamese-to-English and English-to-Vietnamese, respectively. The general architecture and experimental results of the pre-trained models can be found in our [VinAI Translate system paper](https://www.isca-speech.org/archive/interspeech_2022/nguyen22e_interspeech.html):
 
     @inproceedings{vinaitranslate,
     title     = {{A Vietnamese-English Neural Machine Translation System}},
