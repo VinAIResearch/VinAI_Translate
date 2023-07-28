@@ -38,6 +38,41 @@ Model | #params | Max length
 
 ### Vietnamese-to-English translation
 
+#### GPU-based batch translation example
+
+```python
+import torch
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+
+tokenizer_vi2en = AutoTokenizer.from_pretrained("vinai/vinai-translate-vi2en", src_lang="vi_VN")
+model_vi2en = AutoModelForSeq2SeqLM.from_pretrained("vinai/vinai-translate-vi2en")
+device_vi2en = torch.device("cuda")
+model_vi2en.to(device_vi2en)
+
+
+def translate_vi2en(vi_texts: str) -> str:
+    input_ids = tokenizer_vi2en(vi_texts, padding=True, return_tensors="pt").to(device_vi2en)
+    output_ids = model_vi2en.generate(
+        **input_ids,
+        decoder_start_token_id=tokenizer_vi2en.lang_code_to_id["en_XX"],
+        num_return_sequences=1,
+        num_beams=5,
+        early_stopping=True
+    )
+    en_texts = tokenizer_vi2en.batch_decode(output_ids, skip_special_tokens=True)
+    return en_texts
+
+
+vi_texts = ["Cô cho biết: trước giờ tôi không đến phòng tập công cộng, mà tập cùng giáo viên Yoga riêng hoặc tự tập ở nhà.",
+            "Khi tập thể dục trong không gian riêng tư, tôi thoải mái dễ chịu hơn."]
+print(translate_vi2en(vi_texts))
+
+vi_texts = ["cô cho biết trước giờ tôi không đến phòng tập công cộng mà tập cùng giáo viên yoga riêng hoặc tự tập ở nhà khi tập thể dục trong không gian riêng tư tôi thoải mái dễ chịu hơn"]
+print(translate_vi2en(vi_texts))
+```
+
+#### CPU-based sequence translation example
+
 ```python
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
@@ -64,9 +99,44 @@ vi_text = "cô cho biết trước giờ tôi không đến phòng tập công c
 print(translate_vi2en(vi_text))
 ```
 
-- **NOTE**: Before training, we performed Vietnamese tone normalization on the Vietnamese training data, using [a Python script](https://github.com/VinAIResearch/BARTpho/blob/main/VietnameseToneNormalization.md). Users should also employ this script to pre-process the Vietnamese input data before feeding the data into our pre-trained model `vinai/vinai-translate-vi2en`. See a simple and complete example code at [HERE](https://huggingface.co/spaces/vinai/VinAI_Translate/blob/main/app.py).
+#### Note
+Before training, we performed Vietnamese tone normalization on the Vietnamese training data, using [a Python script](https://github.com/VinAIResearch/BARTpho/blob/main/VietnameseToneNormalization.md). Users should also employ this script to pre-process the Vietnamese input data before feeding the data into our pre-trained model `vinai/vinai-translate-vi2en`. See a simple and complete example code at [HERE](https://huggingface.co/spaces/vinai/VinAI_Translate/blob/main/app.py).
 
 ### English-to-Vietnamese translation
+
+#### GPU-based batch translation example
+
+```python
+import torch
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+
+tokenizer_en2vi = AutoTokenizer.from_pretrained("vinai/vinai-translate-en2vi", src_lang="en_XX")
+model_en2vi = AutoModelForSeq2SeqLM.from_pretrained("vinai/vinai-translate-en2vi")
+device_en2vi = torch.device("cuda")
+model_en2vi.to(device_en2vi)
+
+
+def translate_en2vi(en_texts: str) -> str:
+    input_ids = tokenizer_en2vi(en_texts, padding=True, return_tensors="pt").to(device_en2vi)
+    output_ids = model_en2vi.generate(
+        **input_ids,
+        decoder_start_token_id=tokenizer_en2vi.lang_code_to_id["vi_VN"],
+        num_return_sequences=1,
+        num_beams=5,
+        early_stopping=True
+    )
+    vi_texts = tokenizer_en2vi.batch_decode(output_ids, skip_special_tokens=True)
+    return vi_texts
+
+
+en_texts = ["I haven't been to a public gym before.", "When I exercise in a private space, I feel more comfortable."]
+print(translate_en2vi(en_texts))
+
+en_texts = ["i haven't been to a public gym before when i exercise in a private space i feel more comfortable"]
+print(translate_en2vi(en_texts))
+```
+
+#### CPU-based sequence translation example
 
 ```python
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
