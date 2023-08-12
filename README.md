@@ -29,14 +29,17 @@ Please **CITE** our paper whenever the pre-trained models or the system are used
     
 ### Pre-trained models
 
-Model | #params | Max length  
----|---|---
-`vinai/vinai-translate-vi2en` | 448M | 1024  
-`vinai/vinai-translate-en2vi` | 448M | 1024  
+Model | #params | Max length | License
+---|---|---|---
+`vinai/vinai-translate-vi2en` | 448M | 1024 | GNU Affero General Public License
+`vinai/vinai-translate-en2vi` | 448M | 1024 | GNU Affero General Public License
 
 - Users might also play with these models via the VinAI Translate text-to-text translation app at: [https://huggingface.co/spaces/vinai/VinAI_Translate](https://huggingface.co/spaces/vinai/VinAI_Translate)
 
 ### Vietnamese-to-English translation
+
+#### Note
+Before training, we performed Vietnamese tone normalization on the Vietnamese training data, using [a Python script](https://github.com/VinAIResearch/BARTpho/blob/main/VietnameseToneNormalization.md). Users should also employ this script to pre-process the Vietnamese input data before feeding the data into our pre-trained model `vinai/vinai-translate-vi2en`. See a simple and complete example code at [HERE](https://huggingface.co/spaces/vinai/VinAI_Translate/blob/main/app.py).
 
 #### GPU-based batch translation example
 
@@ -62,12 +65,10 @@ def translate_vi2en(vi_texts: str) -> str:
     en_texts = tokenizer_vi2en.batch_decode(output_ids, skip_special_tokens=True)
     return en_texts
 
-
+# The input may consist of multiple text sequences, with the number of text sequences in the input ranging from 1 up to 8, 16, 32, or even higher, depending on the GPU memory.
 vi_texts = ["Cô cho biết: trước giờ tôi không đến phòng tập công cộng, mà tập cùng giáo viên Yoga riêng hoặc tự tập ở nhà.",
-            "Khi tập thể dục trong không gian riêng tư, tôi thoải mái dễ chịu hơn."]
-print(translate_vi2en(vi_texts))
-
-vi_texts = ["cô cho biết trước giờ tôi không đến phòng tập công cộng mà tập cùng giáo viên yoga riêng hoặc tự tập ở nhà khi tập thể dục trong không gian riêng tư tôi thoải mái dễ chịu hơn"]
+            "Khi tập thể dục trong không gian riêng tư, tôi thoải mái dễ chịu hơn.",
+            "cô cho biết trước giờ tôi không đến phòng tập công cộng mà tập cùng giáo viên yoga riêng hoặc tự tập ở nhà khi tập thể dục trong không gian riêng tư tôi thoải mái dễ chịu hơn"]
 print(translate_vi2en(vi_texts))
 ```
 
@@ -99,9 +100,6 @@ vi_text = "cô cho biết trước giờ tôi không đến phòng tập công c
 print(translate_vi2en(vi_text))
 ```
 
-#### Note
-Before training, we performed Vietnamese tone normalization on the Vietnamese training data, using [a Python script](https://github.com/VinAIResearch/BARTpho/blob/main/VietnameseToneNormalization.md). Users should also employ this script to pre-process the Vietnamese input data before feeding the data into our pre-trained model `vinai/vinai-translate-vi2en`. See a simple and complete example code at [HERE](https://huggingface.co/spaces/vinai/VinAI_Translate/blob/main/app.py).
-
 ### English-to-Vietnamese translation
 
 #### GPU-based batch translation example
@@ -128,11 +126,10 @@ def translate_en2vi(en_texts: str) -> str:
     vi_texts = tokenizer_en2vi.batch_decode(output_ids, skip_special_tokens=True)
     return vi_texts
 
-
-en_texts = ["I haven't been to a public gym before.", "When I exercise in a private space, I feel more comfortable."]
-print(translate_en2vi(en_texts))
-
-en_texts = ["i haven't been to a public gym before when i exercise in a private space i feel more comfortable"]
+# The input may consist of multiple text sequences, with the number of text sequences in the input ranging from 1 up to 8, 16, 32, or even higher, depending on the GPU memory.
+en_texts = ["I haven't been to a public gym before.",
+            "When I exercise in a private space, I feel more comfortable.",
+            "i haven't been to a public gym before when i exercise in a private space i feel more comfortable"]
 print(translate_en2vi(en_texts))
 ```
 
