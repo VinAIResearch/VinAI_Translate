@@ -20,6 +20,7 @@ Our pre-trained VinAI Translate models `vinai/vinai-translate-vi2en` and `vinai/
     
 Please **CITE** our paper whenever the pre-trained models or the system are used to help produce published results or incorporated into other software.
 
+- VinAI Translate system: [https://vinai-translate.vinai.io](https://vinai-translate.vinai.io/)
 
 ## Using VinAI Translate in [`transformers`](https://github.com/huggingface/transformers)
 
@@ -34,7 +35,7 @@ Model | #params | Max length | License
 `vinai/vinai-translate-vi2en` | 448M | 1024 | GNU Affero General Public License
 `vinai/vinai-translate-en2vi` | 448M | 1024 | GNU Affero General Public License
 
-- Users might also play with these models via the VinAI Translate text-to-text translation app at: [https://huggingface.co/spaces/vinai/VinAI_Translate](https://huggingface.co/spaces/vinai/VinAI_Translate)
+- Users might also play with these models via the HuggingFace space "VinAI Translate" at: [https://huggingface.co/spaces/vinai/VinAI_Translate](https://huggingface.co/spaces/vinai/VinAI_Translate)
 
 ### Vietnamese-to-English translation
 
