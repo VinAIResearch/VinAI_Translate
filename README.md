@@ -26,8 +26,8 @@ Please **CITE** our paper whenever the pre-trained models or the system are used
 
 Model | Max length | License | Note
 ---|---|---|---
-[`vinai/vinai-translate-vi2en-v2`](https://huggingface.co/vinai/vinai-translate-vi2en-v2) | 1024 | GNU AGPL-3.0 | Further fine-tuning `vinai/vinai-translate-vi2en` on a combination with mTet-v2 data (with deduplication removal)
-[`vinai/vinai-translate-en2vi-v2`](https://huggingface.co/vinai/vinai-translate-en2vi-v2) | 1024 | GNU AGPL-3.0 | Further fine-tuning `vinai/vinai-translate-en2vi` on a combination with mTet-v2 data (with deduplication removal)
+[`vinai/vinai-translate-vi2en-v2`](https://huggingface.co/vinai/vinai-translate-vi2en-v2) | 1024 | GNU AGPL-3.0 | Further fine-tuning `vinai/vinai-translate-vi2en` on a combination with mTet-v2 data (with duplication removal)
+[`vinai/vinai-translate-en2vi-v2`](https://huggingface.co/vinai/vinai-translate-en2vi-v2) | 1024 | GNU AGPL-3.0 | Further fine-tuning `vinai/vinai-translate-en2vi` on a combination with mTet-v2 data (with duplication removal)
 [`vinai/vinai-translate-vi2en`](https://huggingface.co/vinai/vinai-translate-vi2en) | 1024 | GNU AGPL-3.0 | 448M parameters
 [`vinai/vinai-translate-en2vi`](https://huggingface.co/vinai/vinai-translate-en2vi) | 1024 | GNU AGPL-3.0 | 448M parameters
 
